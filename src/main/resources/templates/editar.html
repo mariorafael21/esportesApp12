@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Produto</title>
+
+</head>
+<body>
+    <div th:include="fragments/fragments :: header"></div>
+    <h2> >> EDITAR PRODUTO << </h2>
+
+    <form method="post" th:object="${produto}" th:action="@{/salvar}">
+        ID: <input type="hidden" name="id" th:field="*{id}"> <br/>
+        NOME: <input type="text" name="nome" th:field="*{nome}"> <br/>
+        COR: <input type="text" name="cor" th:field="*{cor}"> <br/>
+        MARCA: <input type="text" name="marca" th:field="*{marca}"> <br/>
+        TAMANHO: <input type="text" name="tamanho" th:field="*{tamanho}"> <br/>
+        GENERO: <input type="text" name="genero" th:field="*{genero}"> <br/>
+        <button type="submit"> >> SALVAR << </button>
+    </form>
+
+    <div th:replace="fragments/fragments :: footer"></div>
+
+</body>
+</html>

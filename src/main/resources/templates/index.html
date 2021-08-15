@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <div th:include="fragments/fragments :: header"></div>
+    <h2> >> LISTAGEM DE PRODUTOS <<</h2>
+
+    <a href="/cadastrar"> NOVO PRODUTO + </a>
+    <br />
+    <table>
+        <tr>
+            <th>ID|</th>
+            <th>NOME|</th>
+            <th>COR|</th>
+            <th>MARCA|</th>
+            <th>TAMANHO|</th>
+            <th>GÊNERO|</th>
+        </tr>
+        <tr th:each="produto : ${listaProdutos}">
+            <td th:text="${produto.id}">ID</td>
+            <td th:text="${produto.nome}">NOME</td>
+            <td th:text="${produto.cor}">COR</td>
+            <td th:text="${produto.marca}">MARCA</td>
+            <td th:text="${produto.tamanho}">TAMANHO</td>
+            <td th:text="${produto.genero}">GENERO</td>
+            <td><a th:href="@{'/deletar/' + ${produto.id}}"> >> DELETAR << </a> </td>
+            <td><a th:href="@{'/editar/' + ${produto.id}}"> >> EDITAR << </a> </td>
+        </tr>
+    </table>
+
+    <div th:replace="fragments/fragments :: footer"></div>
+
+</body>
+</html>
